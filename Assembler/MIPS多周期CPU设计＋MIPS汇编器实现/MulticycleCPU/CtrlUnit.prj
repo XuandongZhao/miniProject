@@ -1,0 +1,4 @@
+verilog work "OutputFunc.v"
+verilog work "NextState.v"
+verilog work "DFilpFlop.v"
+verilog work "CtrlUnit.v"

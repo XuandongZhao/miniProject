@@ -1,0 +1,135 @@
+_main:
+  addi $s0, $zero, 0      # 数组a基地址
+  addi $s1, $zero, 0      
+  #dddddddddddd
+    
+  addi $s2, $zero, 5          
+  addi $t3, $zero, 2      # a[0] = 2
+  sw   $t3, 0($s0)
+  addi $t3, $zero, 5      # a[1] = 5
+  sw   $t3, 4($s0) 
+  addi $t3, $zero, -1      # a[2] = -1
+  sw   $t3, 8($s0)
+  addi $t3, $zero, 10     # a[3] = 10
+  sw   $t3, 12($s0)
+  addi $t3, $zero, 8      # a[4] = 8
+  sw   $t3, 16($s0)
+  addi $t3, $zero, 4      # a[5] = 4
+  sw   $t3, 20($s0)
+  addi $a0, $s0,  0        #传给Quick的参数Quick_sort(a,0,n-1);
+  addi $a1, $s1,  0
+  addi $a2, $s2,  0
+  addi $sp, $zero,127      #栈指针基地址
+  jal Quick_sort           # 调用Quick_sort(a,0,n-1);
+  lw   $t0, 0($s0)         #调用返回或打印显示结果
+  lw   $t0, 4($s0)
+  lw   $t0, 8($s0)
+  lw   $t0, 12($s0)
+  lw   $t0, 16($s0)
+  lw   $t0, 20($s0)
+  lw   $t0, 0($s0)
+  lw   $t0, 4($s0)
+  lw   $t0, 8($s0)
+  lw   $t0, 12($s0)
+  lw   $t0, 16($s0)
+  lw   $t0, 20($s0)
+loop:
+  addi $t0, $zero, -1
+  j    loop               #跳转到上一条指令，方便调试时定位打印结果
+Quick_sort:             # Quick_sort(a,0,n-1);
+  addi $sp, $sp,  -24    #参数等压栈
+  sw   $ra, 20($sp)      
+  sw   $a2, 16($sp)
+  sw   $a1, 12($sp)
+  sw   $a0, 8($sp)
+  sw   $s1, 4($sp)
+  sw   $s0, 0($sp)
+  add  $t1, $a1,  $zero
+  add  $t2, $a2,  $zero
+  add  $s1, $a2,  $zero
+  slt  $t3, $t1,  $t2
+  beq  $t3, $zero,exit       #if(p<r)
+  jal  Partition             #调用Partition
+  add  $s0, $v0,  $zero       # v0 = Partition(a,p,r);
+  addi $a2, $s0,  -1          # q-1
+  jal  Quick_sort             # Quick_sort(a,p,q-1);
+  addi $a1, $s0,  1           # q+1
+  add  $a2, $s1,  $zero
+  jal  Quick_sort             # Quick_sort(a,q+1,r);
+exit:               
+  lw   $s0, 0($sp)         #出栈
+  lw   $s1, 4($sp)
+  lw   $a0, 8($sp)
+  lw   $a1, 12($sp)
+  lw   $a2, 16($sp)
+  lw   $ra, 20($sp)
+  addi $sp, $sp,  24
+  jr   $ra               #过程返回
+Partition:               #Partition(long int a[],long int p,long int r)
+  addi $sp, $sp,  -28    #参数等压栈
+  sw   $ra, 24($sp)
+  sw   $a2, 20($sp)
+  sw   $a1, 16($sp)
+  sw   $a0, 12($sp)
+  sw   $s2, 8($sp)
+  sw   $s1, 4($sp)
+  sw   $s0, 0($sp)
+  add  $s1, $a1,  $zero
+  addi $s0, $s1,  -1
+  add  $s2, $a2,  $zero
+fortst:                  #for(;j<r;j++)
+  slt  $t0, $s1,  $s2
+  beq  $t0, $zero,exit1
+  add  $t1, $s1,  $zero
+  sll  $t1, $t1,  2
+  add  $t1, $t1,  $a0
+  lw   $t1, 0($t1)
+  add  $t2, $s2,  $zero 
+  sll  $t2, $t2,  2
+  add  $t2, $t2,  $a0
+  lw   $t2, 0($t2)
+  slt  $t3, $t2,  $t1
+  beq  $t3, $zero,exit2    #if(a[j]<=a[r])
+  addi $s1, $s1,  1
+  j    fortst
+exit2:
+  addi $s0, $s0,  1
+  add  $a1, $s0,  $zero
+  add  $a2, $s1,  $zero
+  jal  swap              #swap(a[i],a[j]);
+  addi $s1, $s1,  1
+  j    fortst
+exit1:
+  addi $a1, $s0,  1
+  add  $a2, $s2,  $zero
+  jal swap                #swap(a[i+1],a[r]);      
+  addi $v0, $s0,  1
+  lw   $s0, 0($sp)        #参数出栈
+  lw   $s1, 4($sp)
+  lw   $s2, 8($sp)
+  lw   $a0, 12($sp)
+  lw   $a1, 16($sp)
+  lw   $a2, 20($sp)
+  lw   $ra, 24($sp)
+  addi $sp, $sp,   28
+  jr   $ra               #过程返回return i+1;
+swap:
+  addi $sp, $sp,-16        #参数压栈
+  sw   $ra, 12($sp)
+  sw   $a2, 8($sp)
+  sw   $a1, 4($sp)
+  sw   $a0, 0($sp)
+  sll  $t1, $a1,   2
+  add  $t1, $a0,   $t1
+  sll  $t2, $a2,   2
+  add  $t2, $a0,   $t2
+  lw   $t0, 0($t1) 
+  lw   $t3, 0($t2)
+  sw   $t3, 0($t1)
+  sw   $t0, 0($t2)
+  lw   $a0, 0($sp)          #参数出栈
+  lw   $a1, 4($sp)
+  lw   $a2, 8($sp)
+  lw   $ra, 12($sp)
+  addi $sp, $sp,   16
+  jr   $ra

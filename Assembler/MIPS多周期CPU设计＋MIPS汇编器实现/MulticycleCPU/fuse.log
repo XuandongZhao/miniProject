@@ -1,0 +1,60 @@
+Running: D:\Xilinx\14.4\ISE_DS\ISE\bin\nt64\unwrapped\fuse.exe -intstyle ise -incremental -lib unisims_ver -lib unimacro_ver -lib xilinxcorelib_ver -o F:/ISE_workspace/CPU/MulticycleCPU/test_isim_beh.exe -prj F:/ISE_workspace/CPU/MulticycleCPU/test_beh.prj work.test work.glbl 
+ISim P.49d (signature 0x7708f090)
+Number of CPUs detected in this system: 4
+Turning on mult-threading, number of parallel sub-compilation jobs: 8 
+Determining compilation order of HDL files
+Analyzing Verilog file "F:/ISE_workspace/CPU/MulticycleCPU/OutputFunc.v" into library work
+Analyzing Verilog file "F:/ISE_workspace/CPU/MulticycleCPU/NextState.v" into library work
+Analyzing Verilog file "F:/ISE_workspace/CPU/MulticycleCPU/DFilpFlop.v" into library work
+Analyzing Verilog file "F:/ISE_workspace/CPU/MulticycleCPU/SignExtend.v" into library work
+WARNING:HDLCompiler:327 - "F:/ISE_workspace/CPU/MulticycleCPU/SignExtend.v" Line 12: Concatenation with unsized literal; will interpret as 32 bits
+WARNING:HDLCompiler:327 - "F:/ISE_workspace/CPU/MulticycleCPU/SignExtend.v" Line 13: Concatenation with unsized literal; will interpret as 32 bits
+Analyzing Verilog file "F:/ISE_workspace/CPU/MulticycleCPU/ROM.v" into library work
+Analyzing Verilog file "F:/ISE_workspace/CPU/MulticycleCPU/RegFile.v" into library work
+Analyzing Verilog file "F:/ISE_workspace/CPU/MulticycleCPU/RAM.v" into library work
+Analyzing Verilog file "F:/ISE_workspace/CPU/MulticycleCPU/PCJump.v" into library work
+Analyzing Verilog file "F:/ISE_workspace/CPU/MulticycleCPU/PCAddImm.v" into library work
+Analyzing Verilog file "F:/ISE_workspace/CPU/MulticycleCPU/PCAddFour.v" into library work
+Analyzing Verilog file "F:/ISE_workspace/CPU/MulticycleCPU/PC.v" into library work
+Analyzing Verilog file "F:/ISE_workspace/CPU/MulticycleCPU/IR.v" into library work
+Analyzing Verilog file "F:/ISE_workspace/CPU/MulticycleCPU/DataSelect_5_Bit.v" into library work
+Analyzing Verilog file "F:/ISE_workspace/CPU/MulticycleCPU/DataSelect_4To1_32Bit.v" into library work
+Analyzing Verilog file "F:/ISE_workspace/CPU/MulticycleCPU/DataSelect_2To1_32Bit.v" into library work
+Analyzing Verilog file "F:/ISE_workspace/CPU/MulticycleCPU/DataReg.v" into library work
+Analyzing Verilog file "F:/ISE_workspace/CPU/MulticycleCPU/CtrlUnit.v" into library work
+Analyzing Verilog file "F:/ISE_workspace/CPU/MulticycleCPU/ALU.v" into library work
+Analyzing Verilog file "F:/ISE_workspace/CPU/MulticycleCPU/Main.v" into library work
+Analyzing Verilog file "F:/ISE_workspace/CPU/MulticycleCPU/test.v" into library work
+Analyzing Verilog file "D:/Xilinx/14.4/ISE_DS/ISE//verilog/src/glbl.v" into library work
+Starting static elaboration
+WARNING:HDLCompiler:327 - "F:/ISE_workspace/CPU/MulticycleCPU/SignExtend.v" Line 12: Concatenation with unsized literal; will interpret as 32 bits
+WARNING:HDLCompiler:327 - "F:/ISE_workspace/CPU/MulticycleCPU/SignExtend.v" Line 13: Concatenation with unsized literal; will interpret as 32 bits
+Completed static elaboration
+Compiling module PC
+Compiling module PCAddFour
+Compiling module ROM
+Compiling module IR
+Compiling module PCJump
+Compiling module DataSelect_5_Bit
+Compiling module RegFile
+Compiling module DataReg
+Compiling module SignExtend
+Compiling module DataSelect_2To1_32Bit
+Compiling module ALU
+Compiling module RAM
+Compiling module PCAddImm
+Compiling module DataSelect_4To1_32Bit
+Compiling module DFilpFlop
+Compiling module NextState
+Compiling module OutputFunc
+Compiling module CtrlUnit
+Compiling module Main
+Compiling module test
+Compiling module glbl
+Time Resolution for simulation is 1ps.
+Waiting for 14 sub-compilation(s) to finish...
+WARNING:Simulator - Unable to copy libPortabilityNOSH.dll to the simulation executable directory: boost::filesystem::copy_file: 系统找不到指定的路径。, "isim\test_isim_beh.exe.sim\libPortability.dll".
+Compiled 21 Verilog Units
+Built simulation executable F:/ISE_workspace/CPU/MulticycleCPU/test_isim_beh.exe
+Fuse Memory Usage: 27896 KB
+Fuse CPU Usage: 796 ms

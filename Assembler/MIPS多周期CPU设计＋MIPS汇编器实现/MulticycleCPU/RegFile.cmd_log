@@ -1,0 +1,3 @@
+xst -intstyle ise -ifn "F:/ISE_workspace/CPU/MulticycleCPU/RegFile.xst" -ofn "F:/ISE_workspace/CPU/MulticycleCPU/RegFile.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -i -p xc3s100e-cp132-4 RegFile.ngc RegFile.ngd  
+map -intstyle ise -p xc3s100e-cp132-4 -cm area -ir off -pr off -c 100 -o RegFile_map.ncd RegFile.ngd RegFile.pcf 

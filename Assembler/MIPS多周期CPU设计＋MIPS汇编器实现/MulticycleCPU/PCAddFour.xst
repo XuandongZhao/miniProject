@@ -1,0 +1,5 @@
+set -tmpdir "F:/ISE_workspace/CPU/MulticycleCPU/xst/projnav.tmp"
+set -xsthdpdir "F:/ISE_workspace/CPU/MulticycleCPU/xst"
+elaborate
+-ifn PCAddFour.prj
+-ifmt mixed

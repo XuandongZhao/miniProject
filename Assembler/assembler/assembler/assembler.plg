@@ -1,0 +1,43 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: assembler - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\Users\chen\AppData\Local\Temp\RSPFC45.tmp" with contents
+[
+kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:console /incremental:yes /pdb:"Debug/assembler.pdb" /debug /machine:I386 /out:"Debug/assembler.exe" /pdbtype:sept 
+".\Debug\Analyze.obj"
+".\Debug\B_type_1reg.obj"
+".\Debug\B_type_2reg.obj"
+".\Debug\Check.obj"
+".\Debug\Get_imm.obj"
+".\Debug\Get_imm_5bit.obj"
+".\Debug\Get_ir_name.obj"
+".\Debug\Get_ir_serial.obj"
+".\Debug\Get_label_locate.obj"
+".\Debug\Get_reg_value.obj"
+".\Debug\I_type_1reg.obj"
+".\Debug\I_type_2reg.obj"
+".\Debug\J_type.obj"
+".\Debug\Label_count.obj"
+".\Debug\Main.obj"
+".\Debug\Offset_type.obj"
+".\Debug\Print_label.obj"
+".\Debug\R_type.obj"
+".\Debug\R_type_1reg.obj"
+".\Debug\R_type_2reg.obj"
+]
+Creating command line "link.exe @C:\Users\chen\AppData\Local\Temp\RSPFC45.tmp"
+<h3>Output Window</h3>
+Linking...
+
+
+
+<h3>Results</h3>
+assembler.exe - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>
